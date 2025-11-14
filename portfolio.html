@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajmeera Ashok - Senior Oracle APEX Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #667eea, #764ba2);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #764ba2, #667eea);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating orbs background */
+        header::before,
+        header::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        header::before {
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.3);
+            top: -100px;
+            right: -50px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        header::after {
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.2);
+            bottom: -50px;
+            left: 10%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+            }
+            50% {
+                transform: translateY(-20px) translateX(20px);
+            }
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 8px 25px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .contact {
+            margin-top: 8px;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        .contact a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styling */
+        section {
+            background: rgba(255, 255, 255, 0.98);
+            margin-bottom: 35px;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-size: 1.7rem;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: #764ba2;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        h4 {
+            font-size: 1rem;
+            color: #764ba2;
+            margin: 12px 0;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* About Section */
+        #about {
+            border-top: 4px solid #667eea;
+        }
+
+        .summary {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Key Achievements */
+        .achievements {
+            margin-top: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+            border-left: 4px solid #667eea;
+            border-radius: 8px;
+        }
+
+        .achievements h3 {
+            color: #667eea;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .achievements ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements li {
+            padding: 8px 0;
+            margin: 8px 0;
+            font-size: 0.91rem;
+            color: #555;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .achievements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Experience Section */
+        #experience {
+            border-top: 4px solid #f093fb;
+        }
+
+        .job {
+            margin: 25px 0;
+            padding: 20px;
+            border-left: 4px solid #f093fb;
+            background: rgba(240, 147, 251, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .job:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(240, 147, 251, 0.2);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 8px;
+        }
+
+        .job-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #764ba2;
+        }
+
+        .job-period {
+            font-size: 0.85rem;
+            color: #999;
+            font-weight: 500;
+        }
+
+        .job-company {
+            font-size: 0.95rem;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .job-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .job ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job li {
+            padding: 8px 0;
+            margin: 8px 0;
+            font-size: 0.91rem;
+            color: #555;
+            padding-left: 22px;
+            position: relative;
+        }
+
+        .job li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #f093fb;
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        #projects {
+            border-top: 4px solid #4facfe;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 22px;
+            border-left: 4px solid #4facfe;
+            transition: all 0.3s ease;
+            animation: fadeUp 0.6s ease-out;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.2);
+        }
+
+        .project-card h4 {
+            color: #764ba2;
+            margin: 8px 0;
+            font-size: 1.08rem;
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            border-left: 2px solid #f093fb;
+        }
+
+        /* Skills Section */
+        #skills {
+            border-top: 4px solid #00f2fe;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: rgba(0, 242, 254, 0.05);
+            padding: 22px;
+            border-radius: 12px;
+            border-left: 4px solid #00f2fe;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.15);
+        }
+
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 12px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-category li {
+            padding: 6px 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .skill-category li::before {
+            content: '•';
+            color: #00f2fe;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        /* Education Section */
+        #education {
+            border-top: 4px solid #43e97b;
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .edu-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #764ba2;
+        }
+
+        .edu-details {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .edu-gpa {
+            font-size: 0.88rem;
+            color: #43e97b;
+            font-weight: 500;
+        }
+
+        .certification-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .certification-section h3 {
+            color: #43e97b;
+            margin-bottom: 15px;
+        }
+
+        .cert-item {
+            padding: 10px 0;
+            font-size: 0.9rem;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+
+        .cert-item::before {
+            content: '✓';
+            color: #43e97b;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 0;
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            h3 {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 25px;
+                margin-bottom: 25px;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+
+            .job-period {
+                margin-top: 5px;
+            }
+
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+
+        /* Animation delays */
+        section:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        section:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        section:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        section:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Ajmeera Ashok</h1>
+        <div class="lead">Senior Oracle APEX Developer</div>
+        <div class="contact">
+            <a href="tel:+12488321034">+1-248-832-1034</a> •
+            <a href="mailto:ajmeeraashok09@gmail.com">ajmeeraashok09@gmail.com</a> •
+            <a href="https://linkedin.com/in/ashok-a-bb6910263" target="_blank">🔗 LinkedIn</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p class="summary">
+                Results-driven Senior Oracle APEX Developer with 8+ years of hands-on expertise in designing, developing, and administering enterprise web applications. Specialist in Oracle APEX (18.1/22.1/24.1), PL/SQL optimization, RESTful web services, and CI/CD automation. Proven track record delivering high-impact solutions in retail, healthcare, and financial sectors with expertise in security compliance (SSO, OAuth2, HIPAA, SOX) and DevOps pipelines.
+            </p>
+
+            <div class="achievements">
+                <h3>Key Achievements</h3>
+                <ul>
+                    <li>Architected and deployed Oracle APEX applications serving 10,000+ concurrent users in production environments</li>
+                    <li>Reduced application query response times by 40% through PL/SQL optimization and strategic indexing</li>
+                    <li>Led successful migration of 5+ legacy Oracle Forms/Reports applications to modern APEX solutions</li>
+                    <li>Implemented CI/CD pipelines reducing deployment time by 60% and ensuring zero-downtime releases</li>
+                    <li>Managed healthcare data compliance (HIPAA) and financial security (SOX) across multi-environment deployments</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Professional Experience</h2>
+
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Senior Oracle APEX Developer</div>
+                        <div class="job-company">SIMPLPOS, Farmington Hills, Michigan</div>
+                        <div class="job-description">Retail Sales, Inventory & POS Administration System</div>
+                    </div>
+                    <div class="job-period">Feb 2024 – Present</div>
+                </div>
+                <ul>
+                    <li>Designed and implemented custom Oracle APEX 24.1 applications for POS sales, returns, and inventory tracking with fully responsive Universal Theme UI and Dynamic Actions</li>
+                    <li>Acted as Application Administrator managing schema synchronization, ACLs, and environment deployments across Dev, Test, and Production</li>
+                    <li>Developed high-performance PL/SQL packages and triggers handling multi-store transactions with real-time inventory synchronization</li>
+                    <li>Built REST and JSON integrations with third-party payment gateways enabling seamless data flow across retail modules</li>
+                    <li>Automated application versioning, backup, and migration using GitHub Actions and Jenkins pipelines ensuring consistent CI/CD deployments</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Senior Oracle Developer</div>
+                        <div class="job-company">Blue Cross Blue Shield of Michigan (BCBSM), Detroit, MI</div>
+                        <div class="job-description">Healthcare Claims Adjudication & Compliance Management Portal</div>
+                    </div>
+                    <div class="job-period">Sept 2022 – Jan 2024</div>
+                </div>
+                <ul>
+                    <li>Led design and development of Healthcare Claims Adjudication Portal in Oracle APEX 22.1 for claims validation, tracking, and HIPAA-compliant reporting</li>
+                    <li>Configured APEX environments and managed workspace provisioning with schema access and ACL policies for secure healthcare data handling</li>
+                    <li>Developed PL/SQL procedures validating EDI 837/835 data ensuring accurate claims processing within regulatory guidelines</li>
+                    <li>Integrated RESTful web services and JSON feeds with payer systems through Oracle REST Data Services (ORDS)</li>
+                    <li>Implemented role-based access control (RBAC) and OAuth2 authentication for APEX users and external service integrations</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Oracle Developer</div>
+                        <div class="job-company">Citi, Mumbai, India</div>
+                        <div class="job-description">Financial Risk & Case Management System</div>
+                    </div>
+                    <div class="job-period">Jan 2018 – Aug 2022</div>
+                </div>
+                <ul>
+                    <li>Designed and developed Financial Case Management System in Oracle APEX 18.1 to track, audit, and manage fraud-related transactions across departments</li>
+                    <li>Performed application administration including workspace upgrades, ACL configuration, and schema synchronization for production and DR environments</li>
+                    <li>Migrated multiple legacy Oracle Forms and Reports applications into modern APEX solutions improving usability and data accessibility</li>
+                    <li>Integrated SOAP and REST web services exchanging data securely between internal risk systems and external regulatory portals</li>
+                    <li>Automated application builds and deployments using Jenkins and GitHub Actions aligning with enterprise DevOps standards</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h4>POS System (SIMPLPOS)</h4>
+                    <p>Comprehensive retail point-of-sale solution with real-time inventory sync, multi-store transaction handling, and responsive UI for store operations.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Oracle APEX 24.1</span>
+                        <span class="tech-tag">PL/SQL</span>
+                        <span class="tech-tag">REST APIs</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Healthcare Claims Portal</h4>
+                    <p>HIPAA-compliant claims adjudication system processing EDI 837/835 data with compliance reporting and payer system integrations.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Oracle APEX 22.1</span>
+                        <span class="tech-tag">ORDS</span>
+                        <span class="tech-tag">HIPAA</span>
+                        <span class="tech-tag">EDI</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Financial Risk Management</h4>
+                    <p>Enterprise case management system for fraud tracking and audit with interactive dashboards and regulatory compliance features.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Oracle APEX 18.1</span>
+                        <span class="tech-tag">SOAP/REST</span>
+                        <span class="tech-tag">Oracle Forms Migration</span>
+                        <span class="tech-tag">Security</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>CI/CD Automation Pipeline</h4>
+                    <p>Enterprise DevOps pipeline using Jenkins and GitHub Actions enabling zero-downtime deployments and version control automation.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Jenkins</span>
+                        <span class="tech-tag">GitHub Actions</span>
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">GitOps</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Performance Tuning Initiative</h4>
+                    <p>Comprehensive database optimization achieving 40% reduction in query response times through indexing and PL/SQL optimization.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">SQL Optimization</span>
+                        <span class="tech-tag">EXPLAIN PLAN</span>
+                        <span class="tech-tag">Indexing</span>
+                        <span class="tech-tag">BULK COLLECT</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>ETL & Data Integration</h4>
+                    <p>Complex data pipelines using SQL Loader, Informatica, and SSIS for multi-source data consolidation and warehouse synchronization.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">SQL Loader</span>
+                        <span class="tech-tag">Informatica</span>
+                        <span class="tech-tag">SSIS</span>
+                        <span class="tech-tag">Data Modeling</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Oracle APEX & Database</h4>
+                    <ul>
+                        <li>Oracle APEX 18.1, 22.1, 24.1</li>
+                        <li>PL/SQL & SQL Optimization</li>
+                        <li>Oracle Forms & Reports</li>
+                        <li>Dynamic Actions & Plugins</li>
+                        <li>SQL Developer, TOAD</li>
+                        <li>Oracle SQL 11g/12c/19c/23c</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Web & Programming</h4>
+                    <ul>
+                        <li>JavaScript & jQuery</li>
+                        <li>HTML5, CSS3, AJAX</li>
+                        <li>Oracle JET</li>
+                        <li>Python, TypeScript</li>
+                        <li>JSON, XML, XSLT</li>
+                        <li>RESTful APIs & SOAP</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Integration & APIs</h4>
+                    <ul>
+                        <li>Oracle ORDS</li>
+                        <li>RESTful Web Services</li>
+                        <li>JSON & XML Data Exchange</li>
+                        <li>Third-party Integrations</li>
+                        <li>Payment Gateway Integration</li>
+                        <li>EDI Data Processing</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>DevOps & Cloud</h4>
+                    <ul>
+                        <li>Jenkins & CI/CD Pipelines</li>
+                        <li>GitHub, GitOps, Git</li>
+                        <li>Terraform & IaC</li>
+                        <li>Oracle Cloud (OCI)</li>
+                        <li>AWS & Azure</li>
+                        <li>Linux/Unix, Bash</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Security & Compliance</h4>
+                    <ul>
+                        <li>OAuth2, SSO, RBAC</li>
+                        <li>CSRF/XSS Prevention</li>
+                        <li>HIPAA Compliance</li>
+                        <li>SOX Compliance</li>
+                        <li>Application Security</li>
+                        <li>Encryption & Audit Logging</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Tools & Frameworks</h4>
+                    <ul>
+                        <li>Agile & Scrum</li>
+                        <li>Jira, Confluence</li>
+                        <li>ServiceNow</li>
+                        <li>Informatica & SSIS</li>
+                        <li>Oracle Analytics (OAC)</li>
+                        <li>Power BI & OBIEE</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education & Certifications</h2>
+
+            <div class="education-item">
+                <div class="edu-title">Master's in Business Analytics</div>
+                <div class="edu-details">Trine University, Angola, Indiana</div>
+                <div class="edu-gpa">GPA: 3.8/4.0</div>
+            </div>
+
+            <div class="education-item">
+                <div class="edu-title">Bachelor of Science in Engineering & Information Technology</div>
+                <div class="edu-details">JNTU (Jawaharlal Nehru Technological University), Hyderabad, India</div>
+                <div class="edu-gpa">GPA: 7.6/10</div>
+            </div>
+
+            <div class="certification-section">
+                <h3>Professional Certifications</h3>
+                <div class="cert-item">Oracle APEX Developer Professional</div>
+                <div class="cert-item">Post Graduate Diploma in Computer Applications (PGDCA)</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Ajmeera Ashok. All rights reserved.</p>
+    </footer>
+</body>
+</html>
